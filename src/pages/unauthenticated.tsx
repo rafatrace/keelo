@@ -7,7 +7,7 @@ const Unauthenticated = () => {
       <p>Use your GitHub account to sign in to Keeelo</p>
       <button onClick={signInWithGithub}>
         <svg
-          enable-background="new 0 0 24 24"
+          enableBackground="new 0 0 24 24"
           height="24"
           width="24"
           viewBox="0 0 24 24"
