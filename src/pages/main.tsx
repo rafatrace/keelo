@@ -1,23 +1,12 @@
-import { signOut } from '@/firebase/auth'
 import { useAuth } from '@/providers/AuthProvider'
 import Unauthenticated from './unauthenticated'
+import Authenticated from './authenticated'
 
 const Main = () => {
   // Services
-  const { userLoggedIn, currentUser } = useAuth()
-  return (
-    <div>
-      {!userLoggedIn ? (
-        <Unauthenticated />
-      ) : (
-        <div>
-          <h2>Hello world</h2>
-          <h2>{currentUser.displayName}</h2>
-          <button onClick={signOut}>Sign out</button>
-        </div>
-      )}
-    </div>
-  )
+  const { userLoggedIn } = useAuth()
+
+  return <div>{!userLoggedIn ? <Unauthenticated /> : <Authenticated />}</div>
 }
 
 export default Main
