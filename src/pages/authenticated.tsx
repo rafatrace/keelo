@@ -1,8 +1,8 @@
 import { signOut } from '@/firebase/auth'
 import { useAuth } from '@/providers/AuthProvider'
-import { getAllWeights, TWeight } from '@/queries/weights'
+import { addWeight, getAllWeights, TWeight } from '@/queries/weights'
 import { convertFirestoreDateToReadable } from '@/utils/dates'
-import { useEffect, useState } from 'react'
+import { FormEvent, useEffect, useState } from 'react'
 
 const Authenticated = () => {
   // Services
@@ -10,16 +10,29 @@ const Authenticated = () => {
 
   // Local state
   const [weights, setWeights] = useState<TWeight[]>([])
+  const [weight, setWeight] = useState<string>('')
 
   // Run on first loading
   useEffect(() => {
     fetchAllWeights()
   }, [])
 
-  // my user: 9odOal4cEcU3XLiOiB8P1F400i82
+  /**
+   * Get all weights from firebase
+   */
   const fetchAllWeights = async () => {
     const data = await getAllWeights(currentUser.uid)
     setWeights(data)
+  }
+
+  /**
+   * Add new weight to firebase
+   */
+  const saveNewWeight = async (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault()
+    await addWeight(weight, currentUser.uid)
+    fetchAllWeights()
+    setWeight('')
   }
 
   return (
@@ -27,6 +40,11 @@ const Authenticated = () => {
       <h2>
         Hello world <u>{currentUser.displayName}</u>
       </h2>
+
+      <form onSubmit={saveNewWeight}>
+        <input type="text" value={weight}  onChange={(e) => setWeight(e.target.value)} />
+        <button>Save</button>
+      </form>
 
       <ul>
         {weights.map((w) => (
