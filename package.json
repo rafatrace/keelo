@@ -1,5 +1,6 @@
 {
   "name": "keeelo",
+  "description": "A project to track one's weight.",
   "private": true,
   "version": "0.0.0",
   "type": "module",
