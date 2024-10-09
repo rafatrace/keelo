@@ -1,3 +1,4 @@
+import LineChart from '@/components/Chart'
 import { signOut } from '@/firebase/auth'
 import { useAuth } from '@/providers/AuthProvider'
 import { addWeight, getAllWeights, TWeight } from '@/queries/weights'
@@ -37,27 +38,17 @@ const Authenticated = () => {
 
   return (
     <div>
-      <h2>
-        Hello world <u>{currentUser.displayName}</u>
-      </h2>
-
       <form onSubmit={saveNewWeight}>
-        <input type="text" value={weight}  onChange={(e) => setWeight(e.target.value)} />
+        <input type="text" value={weight} onChange={(e) => setWeight(e.target.value)} />
         <button>Save</button>
       </form>
 
-      <ul>
-        {weights.map((w) => (
-          <li key={w.id}>
-            <p>
-              <strong>Value:</strong> {w.value}
-            </p>
-            <p>
-              <strong>Date:</strong> {convertFirestoreDateToReadable(w.date)}
-            </p>
-          </li>
-        ))}
-      </ul>
+      <div style={{ maxWidth: '700px' }}>
+        <LineChart
+          labels={weights.map((w) => convertFirestoreDateToReadable(w.date))}
+          values={weights.map((w) => w.value)}
+        />
+      </div>
 
       <button onClick={signOut}>Sign out</button>
     </div>
