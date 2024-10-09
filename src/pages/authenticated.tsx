@@ -36,6 +36,8 @@ const Authenticated = () => {
     setWeight('')
   }
 
+  console.log(currentUser)
+
   return (
     <div>
       <form onSubmit={saveNewWeight}>
