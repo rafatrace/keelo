@@ -1,0 +1,66 @@
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.account {
+  position: relative;
+}
+
+.avatarBtn {
+  border: 0;
+  background-color: transparent;
+  padding: 0;
+  margin: 0;
+  cursor: pointer;
+}
+
+.avatar {
+  height: 28px;
+  width: 28px;
+  object-fit: cover;
+  border-radius: 10px;
+  border: 2px solid transparent;
+}
+
+.avatarBtn:hover .avatar {
+  border-color: var(--n60);
+}
+
+.avatar.openAvatar {
+  border-color: var(--n70) !important;
+}
+
+.dropdown {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background-color: var(--n10);
+  border: 1px solid var(--n40);
+  width: 160px;
+  border-radius: 10px;
+  padding: 10px 0;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.dropdown.open {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.dropdown button {
+  border: 0;
+  background-color: transparent;
+  padding: 4px 10px;
+  margin: 0;
+  cursor: pointer;
+  display: block;
+  width: 100%;
+  text-align: left;
+}
+
+.dropdown button:hover {
+  background-color: var(--n20);
+}

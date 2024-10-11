@@ -26,7 +26,7 @@ export const getAllWeights = async (uid: string): Promise<TWeight[]> => {
 export const addWeight = async (value: string, ownerId: string) => {
   await addDoc(collection(db, 'weights'), {
     ownerId,
-    value: parseInt(value),
+    value: parseFloat(value),
     date: Timestamp.fromDate(new Date())
   })
 }

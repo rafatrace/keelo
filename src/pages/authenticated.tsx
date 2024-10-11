@@ -1,9 +1,10 @@
 import LineChart from '@/components/Chart'
-import { signOut } from '@/firebase/auth'
+import Form from '@/components/Form'
+import Header from '@/components/Header'
 import { useAuth } from '@/providers/AuthProvider'
-import { addWeight, getAllWeights, TWeight } from '@/queries/weights'
+import { getAllWeights, TWeight } from '@/queries/weights'
 import { convertFirestoreDateToReadable } from '@/utils/dates'
-import { FormEvent, useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 
 const Authenticated = () => {
   // Services
@@ -11,7 +12,6 @@ const Authenticated = () => {
 
   // Local state
   const [weights, setWeights] = useState<TWeight[]>([])
-  const [weight, setWeight] = useState<string>('')
 
   // Run on first loading
   useEffect(() => {
@@ -26,24 +26,10 @@ const Authenticated = () => {
     setWeights(data)
   }
 
-  /**
-   * Add new weight to firebase
-   */
-  const saveNewWeight = async (e: FormEvent<HTMLFormElement>) => {
-    e.preventDefault()
-    await addWeight(weight, currentUser.uid)
-    fetchAllWeights()
-    setWeight('')
-  }
-
-  console.log(currentUser)
-
   return (
-    <div>
-      <form onSubmit={saveNewWeight}>
-        <input type="text" value={weight} onChange={(e) => setWeight(e.target.value)} />
-        <button>Save</button>
-      </form>
+    <main>
+      <Header />
+      <Form fetchAllWeights={fetchAllWeights} />
 
       <div style={{ maxWidth: '700px' }}>
         <LineChart
@@ -51,9 +37,7 @@ const Authenticated = () => {
           values={weights.map((w) => w.value)}
         />
       </div>
-
-      <button onClick={signOut}>Sign out</button>
-    </div>
+    </main>
   )
 }
 

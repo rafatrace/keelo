@@ -1,6 +1,13 @@
-const Logo = () => {
+type TLogoProps = {
+  height?: number
+}
+
+const Logo = ({ height }: TLogoProps) => {
+  const finalHeight = height ?? 40
+  const finalWidth = height ? (142 * height) / 40 : 142
+
   return (
-    <svg width="142" height="40" viewBox="0 0 142 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <svg width={finalWidth} height={finalHeight} viewBox="0 0 142 40" fill="none" xmlns="http://www.w3.org/2000/svg">
       <path
         d="M0 8.91365C0 3.99078 3.99078 0 8.91365 0H31.0863C36.0092 0 40 3.99078 40 8.91365V31.0863C40 36.0092 36.0092 40 31.0863 40H8.91365C3.99078 40 0 36.0092 0 31.0863V8.91365Z"
         fill="black"

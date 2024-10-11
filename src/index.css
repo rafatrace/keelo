@@ -2,6 +2,7 @@
   --n10: #ffffff;
   --n20: #f8f8f8;
   --n40: #e5e5e5;
+  --n60: #636363;
   --n70: #252628;
   --n80: #000000;
 }
@@ -134,4 +135,13 @@
   display: flex;
   flex-direction: column;
   gap: 6px;
+}
+
+/**
+ * Main
+ */
+main {
+  width: 515px;
+  margin: 0 auto;
+  padding-top: 60px;
 }
