@@ -1,4 +1,5 @@
 import ReactDOM from 'react-dom/client'
+import './remove.css'
 import './index.css'
 import { StrictMode } from 'react'
 import Main from './pages/main'

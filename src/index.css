@@ -1,0 +1,137 @@
+:root {
+  --n10: #ffffff;
+  --n20: #f8f8f8;
+  --n40: #e5e5e5;
+  --n70: #252628;
+  --n80: #000000;
+}
+
+* {
+  font-family:
+    -apple-system,
+    BlinkMacSystemFont,
+    Avenir Next,
+    Segoe UI,
+    Roboto !important;
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizelegibility;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  text-shadow: rgba(0, 0, 0, 0.01) 0 0 1px;
+  font-weight: 400;
+  color: var(--n70);
+}
+
+/**
+ * Font sizes
+ */
+.lg {
+  font-size: 18px;
+  line-height: 26px;
+}
+
+.sm {
+  font-size: 14px;
+  line-height: 20px;
+}
+
+/**
+ * Font weights
+ */
+.regular {
+  font-weight: 400;
+}
+
+.medium {
+  font-weight: 500;
+}
+
+.bold {
+  font-weight: 700;
+}
+
+/**
+ * Buttons
+ */
+.btn {
+  height: 42px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  border-radius: 8px;
+  border: 1px solid transparent;
+  cursor: pointer;
+}
+
+.btn-white {
+  border-color: var(--n40);
+  background-color: var(--n10);
+}
+
+.btn-white span {
+  color: var(--n70);
+}
+
+.btn-white:hover {
+  background-color: var(--n20);
+}
+
+.btn-black {
+  border-color: var(--n70);
+  background-color: var(--n70);
+}
+
+.btn-black span {
+  color: var(--n10);
+}
+
+.btn-black:hover {
+  background-color: var(--n80);
+}
+
+.btn-block {
+  width: 100%;
+}
+
+/**
+ * Login page
+ */
+#login-page {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+.login-content {
+  max-width: 340px;
+  margin-top: -10vh;
+}
+
+.login-content .logo {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.login-container {
+  padding: 50px 30px;
+  border: 1px solid var(--n40);
+  border-radius: 8px;
+}
+
+.login-container h1 {
+  margin-bottom: 4px;
+}
+
+.login-container p {
+  margin-bottom: 20px;
+}
+
+.login-providers {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
