@@ -1,10 +1,10 @@
-import LineChart from '@/components/Chart'
 import Form from '@/components/Form'
 import Header from '@/components/Header'
 import { useAuth } from '@/providers/AuthProvider'
 import { getAllWeights, TWeight } from '@/queries/weights'
 import { convertFirestoreDateToReadable } from '@/utils/dates'
 import { useEffect, useState } from 'react'
+import WeightChart from '@/components/WeightChart'
 
 const Authenticated = () => {
   // Services
@@ -31,10 +31,11 @@ const Authenticated = () => {
       <Header />
       <Form fetchAllWeights={fetchAllWeights} />
 
-      <div style={{ maxWidth: '700px' }}>
-        <LineChart
-          labels={weights.map((w) => convertFirestoreDateToReadable(w.date))}
-          values={weights.map((w) => w.value)}
+      <div>
+        <WeightChart
+          data={weights.map((w) => {
+            return { name: convertFirestoreDateToReadable(w.date), Weight: w.value }
+          })}
         />
       </div>
     </main>
