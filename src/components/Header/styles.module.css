@@ -71,3 +71,9 @@
 .dropdown button:hover {
   background-color: var(--n20);
 }
+
+@media (max-width: 515px) {
+  .header {
+    position: static;
+  }
+}

@@ -7,4 +7,12 @@
   background-color: var(--n10);
   position: sticky;
   top: calc(51px + 58px);
+  width: 100%;
+  display: block;
+}
+
+@media (max-width: 515px) {
+  .chartContainer {
+    position: static;
+  }
 }
