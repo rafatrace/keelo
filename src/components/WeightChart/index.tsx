@@ -17,9 +17,15 @@ const WeightChart = ({ data }: TWeightChartProps) => {
 
   // Get ticks
   const minIntValue = Math.ceil(min)
-  const ticks = []
+  let ticks = []
   for (let i = minIntValue; i <= max + 1; i++) {
     ticks.push(i)
+  }
+
+  if (ticks.length > 6 && ticks.length < 15) {
+    ticks = ticks.filter((t) => t % 2 === 0)
+  } else if (ticks.length >= 15) {
+    ticks = ticks.filter((t) => t % 4 === 0)
   }
 
   return (
