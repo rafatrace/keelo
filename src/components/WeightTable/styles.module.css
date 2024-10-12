@@ -19,12 +19,12 @@
   padding: 6px 6px;
 }
 
-.bad {
-  color: var(--bad) !important;
-}
-
-.good {
-  color: var(--good) !important;
+.diff {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 4px;
+  color: var(--n60);
 }
 
 .name {

@@ -1,7 +1,6 @@
 import { convertDateToReadableText } from '@/utils/dates'
 import styles from './styles.module.css'
 import { deleteWeight, TWeight } from '@/queries/weights'
-import classNames from 'classnames'
 import Icon from '../Icon'
 
 type TWeightTableProps = {
@@ -70,12 +69,12 @@ const WeightTable = ({ data, fetchAllWeights }: TWeightTableProps) => {
                 <td align="left">
                   <span className="sm regular">{convertDateToReadableText(weight.date)}</span>
                 </td>
-                <td
-                  align="right"
-                  className={classNames(['sm', 'regular', { [styles.good]: diff < 0 }, { [styles.bad]: diff > 0 }])}
-                >
-                  {diff === 0 ? '' : diff < 0 ? `${diff}` : `+${diff}`}
-                  {diff !== 0 ? ' kg' : ''}
+                <td align="right" className="sm regular">
+                  <div className={styles.diff}>
+                    {diff === 0 ? '' : diff < 0 ? `${diff}` : `+${diff}`}
+                    {diff !== 0 ? ' kg' : ''}
+                    {diff !== 0 ? <Icon type="circle-filled" size={12} color={diff < 0 ? 'good' : 'bad'} /> : null}
+                  </div>
                 </td>
               </tr>
             )
