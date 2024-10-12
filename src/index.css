@@ -45,6 +45,11 @@ svg {
   line-height: 20px;
 }
 
+.xs {
+  font-size: 12px;
+  line-height: 18px;
+}
+
 /**
  * Font weights
  */

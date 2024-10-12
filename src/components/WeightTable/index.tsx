@@ -2,6 +2,7 @@ import { convertDateToReadableText } from '@/utils/dates'
 import styles from './styles.module.css'
 import { deleteWeight, TWeight } from '@/queries/weights'
 import Icon from '../Icon'
+import classNames from 'classnames'
 
 type TWeightTableProps = {
   data: TWeight[]
@@ -59,7 +60,7 @@ const WeightTable = ({ data, fetchAllWeights }: TWeightTableProps) => {
                 <td align="left">
                   <div className={styles.name}>
                     <span>
-                      <span className="sm medium">{weight.value}</span> kg
+                      <span className="sm medium">{weight.value}</span>kg
                     </span>
                     <button className={styles.trash} onClick={confirmAndDelete(weight.id)}>
                       <Icon type="trash" size={16} color="n60" />
@@ -67,10 +68,10 @@ const WeightTable = ({ data, fetchAllWeights }: TWeightTableProps) => {
                   </div>
                 </td>
                 <td align="left">
-                  <span className="sm regular">{convertDateToReadableText(weight.date)}</span>
+                  <span className="xs regular">{convertDateToReadableText(weight.date)}</span>
                 </td>
-                <td align="right" className="sm regular">
-                  <div className={styles.diff}>
+                <td align="right">
+                  <div className={classNames('xs', 'regular', styles.diff)}>
                     {diff === 0 ? '' : diff < 0 ? `${diff}` : `+${diff}`}
                     {diff !== 0 ? ' kg' : ''}
                     {diff !== 0 ? <Icon type="circle-filled" size={12} color={diff < 0 ? 'good' : 'bad'} /> : null}
