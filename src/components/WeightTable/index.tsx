@@ -1,13 +1,15 @@
 import { convertDateToReadableText } from '@/utils/dates'
 import styles from './styles.module.css'
-import { TWeight } from '@/queries/weights'
+import { deleteWeight, TWeight } from '@/queries/weights'
 import classNames from 'classnames'
+import Icon from '../Icon'
 
 type TWeightTableProps = {
   data: TWeight[]
+  fetchAllWeights: () => void
 }
 
-const WeightTable = ({ data }: TWeightTableProps) => {
+const WeightTable = ({ data, fetchAllWeights }: TWeightTableProps) => {
   // Weights
   const weights = data.slice().reverse()
 
@@ -24,6 +26,19 @@ const WeightTable = ({ data }: TWeightTableProps) => {
 
     const diff = weight.value - prevWeight.value
     return Math.round(diff * 10) / 10
+  }
+
+  /**
+   * Delete weight
+   */
+  const confirmAndDelete = (id: string) => {
+    return async () => {
+      const confirm = window.confirm('Are you sure you want to remove this weight?')
+      if (confirm) {
+        await deleteWeight(id)
+        fetchAllWeights()
+      }
+    }
   }
 
   return (
@@ -43,7 +58,14 @@ const WeightTable = ({ data }: TWeightTableProps) => {
             return (
               <tr key={weight.id}>
                 <td align="left">
-                  <span className="sm medium">{weight.value}</span> kg
+                  <div className={styles.name}>
+                    <span>
+                      <span className="sm medium">{weight.value}</span> kg
+                    </span>
+                    <button className={styles.trash} onClick={confirmAndDelete(weight.id)}>
+                      <Icon type="trash" size={16} color="n60" />
+                    </button>
+                  </div>
                 </td>
                 <td align="left">
                   <span className="sm regular">{convertDateToReadableText(weight.date)}</span>

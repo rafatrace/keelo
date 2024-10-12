@@ -38,7 +38,7 @@ const Authenticated = () => {
         })}
       />
 
-      <WeightTable data={weights} />
+      <WeightTable data={weights} fetchAllWeights={fetchAllWeights} />
     </main>
   )
 }

@@ -26,3 +26,34 @@
 .good {
   color: var(--good) !important;
 }
+
+.name {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.trash {
+  border: 0;
+  background-color: transparent;
+  padding: 0;
+  margin: 0;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 20px;
+  width: 20px;
+  background-color: var(--n10);
+  border-radius: 4px;
+  opacity: 0;
+  transition: opacity 200ms ease-in-out;
+}
+
+.name:hover .trash {
+  opacity: 1;
+}
+
+.trash:hover {
+  background-color: var(--n30);
+}

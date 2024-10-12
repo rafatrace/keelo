@@ -1,5 +1,5 @@
 import { db } from '@/firebase/firebase'
-import { addDoc, collection, getDocs, orderBy, query, Timestamp, where } from 'firebase/firestore'
+import { addDoc, collection, deleteDoc, doc, getDocs, orderBy, query, Timestamp, where } from 'firebase/firestore'
 
 /**
  * Get all weights from a user
@@ -29,6 +29,13 @@ export const addWeight = async (value: string, ownerId: string) => {
     value: parseFloat(value),
     date: Timestamp.fromDate(new Date())
   })
+}
+
+/**
+ * Delete a specific weight in database
+ */
+export const deleteWeight = async (id: string) => {
+  await deleteDoc(doc(db, 'weights', id))
 }
 
 /**
