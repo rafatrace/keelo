@@ -22,7 +22,7 @@ const WeightTable = ({ data }: TWeightTableProps) => {
       return 0
     }
 
-    const diff = prevWeight.value - weight.value
+    const diff = weight.value - prevWeight.value
     return Math.round(diff * 10) / 10
   }
 
