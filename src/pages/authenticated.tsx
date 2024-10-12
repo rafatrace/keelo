@@ -2,9 +2,10 @@ import Form from '@/components/Form'
 import Header from '@/components/Header'
 import { useAuth } from '@/providers/AuthProvider'
 import { getAllWeights, TWeight } from '@/queries/weights'
-import { convertFirestoreDateToReadable } from '@/utils/dates'
+import { convertDateToDotFormat } from '@/utils/dates'
 import { useEffect, useState } from 'react'
 import WeightChart from '@/components/WeightChart'
+import WeightTable from '@/components/WeightTable'
 
 const Authenticated = () => {
   // Services
@@ -31,13 +32,13 @@ const Authenticated = () => {
       <Header />
       <Form fetchAllWeights={fetchAllWeights} />
 
-      <div>
-        <WeightChart
-          data={weights.map((w) => {
-            return { name: convertFirestoreDateToReadable(w.date), Weight: w.value }
-          })}
-        />
-      </div>
+      <WeightChart
+        data={weights.map((w) => {
+          return { name: convertDateToDotFormat(w.date), Weight: w.value }
+        })}
+      />
+
+      <WeightTable data={weights} />
     </main>
   )
 }

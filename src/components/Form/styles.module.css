@@ -1,5 +1,11 @@
+.formContainer {
+  position: sticky;
+  top: 51px;
+  padding: 0 0 10px 0;
+  background-color: var(--n10);
+}
+
 .form {
-  margin-top: 50px;
   position: relative;
 }
 

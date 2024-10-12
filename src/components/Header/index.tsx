@@ -36,10 +36,13 @@ const Header = () => {
 
         <div ref={dropdownRef} className={classNames(styles.dropdown, { [styles.open]: isDropdownOpen })}>
           <button onClick={signOut} className="sm regular">
-            Dark mode
+            Settings
           </button>
           <button onClick={signOut} className="sm regular">
             Sign out
+          </button>
+          <button onClick={signOut} className="sm regular">
+            Dark mode
           </button>
         </div>
       </div>

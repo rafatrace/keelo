@@ -25,10 +25,12 @@ const Form = ({ fetchAllWeights }: TFormProps) => {
   }
 
   return (
-    <form onSubmit={saveNewWeight} className={styles.form}>
-      <input type="text" value={weight} onChange={(e) => setWeight(e.target.value)} placeholder="Ready to weight?" />
-      <button>Save</button>
-    </form>
+    <div className={styles.formContainer}>
+      <form onSubmit={saveNewWeight} className={styles.form}>
+        <input type="text" value={weight} onChange={(e) => setWeight(e.target.value)} placeholder="Ready to weight?" />
+        <button>Save</button>
+      </form>
+    </div>
   )
 }
 

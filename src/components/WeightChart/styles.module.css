@@ -1,6 +1,10 @@
 .chartContainer {
-  margin-top: 10px;
   border: 1px solid var(--n40);
   border-radius: 10px;
   padding: 10px;
+  position: sticky;
+  top: 40px;
+  background-color: var(--n10);
+  position: sticky;
+  top: calc(51px + 58px);
 }
