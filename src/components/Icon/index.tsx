@@ -1,4 +1,4 @@
-import { CircleFilled, NoIcon, Trash } from '@/icons'
+import { CircleFilled, Moon, NoIcon, Trash } from '@/icons'
 
 type TIconProps = {
   type: TIconTypes
@@ -17,6 +17,8 @@ const Icon = ({ type, size, color }: TIconProps) => {
   switch (type) {
     case 'circle-filled':
       return <CircleFilled {...defaults} />
+    case 'moon':
+      return <Moon {...defaults} />
     case 'trash':
       return <Trash {...defaults} />
     default:
@@ -26,6 +28,6 @@ const Icon = ({ type, size, color }: TIconProps) => {
 
 export default Icon
 
-export type TIconTypes = 'circle-filled' | 'trash'
+export type TIconTypes = 'circle-filled' | 'moon' | 'trash'
 
 export type TColors = 'n10' | 'n20' | 'n30' | 'n40' | 'n60' | 'n70' | 'n80' | 'bad' | 'good'

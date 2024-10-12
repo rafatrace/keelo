@@ -5,6 +5,7 @@ import styles from './styles.module.css'
 import { useState } from 'react'
 import classNames from 'classnames'
 import useClickOutside from '@/utils/useClickOutside'
+import DarkModeSelector from '../DarkModeSelector'
 
 const Header = () => {
   // Services
@@ -41,9 +42,8 @@ const Header = () => {
           <button onClick={signOut} className="sm regular">
             Sign out
           </button>
-          <button onClick={signOut} className="sm regular">
-            Dark mode
-          </button>
+          <hr />
+          <DarkModeSelector />
         </div>
       </div>
     </header>

@@ -17,6 +17,7 @@
   padding: 0 80px 0 20px;
   font-weight: 500;
   font-size: 14px;
+  background-color: var(--n10);
 }
 
 .form input:focus {

@@ -43,7 +43,7 @@
   right: 0;
   background-color: var(--n10);
   border: 1px solid var(--n40);
-  width: 160px;
+  width: 190px;
   border-radius: 10px;
   padding: 10px 0;
   opacity: 0;
@@ -69,7 +69,13 @@
 }
 
 .dropdown button:hover {
-  background-color: var(--n20);
+  background-color: var(--n30);
+}
+
+.dropdown hr {
+  height: 1px;
+  background-color: var(--n40);
+  border: 0;
 }
 
 @media (max-width: 515px) {

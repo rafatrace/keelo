@@ -34,8 +34,8 @@ const WeightChart = ({ data }: TWeightChartProps) => {
         <AreaChart data={data}>
           <defs>
             <linearGradient id="gradient" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="5%" stopColor="#3880f6" stopOpacity={0.5} />
-              <stop offset="95%" stopColor="#3880f6" stopOpacity={0.05} />
+              <stop offset="5%" stopColor="var(--line)" stopOpacity={0.5} />
+              <stop offset="95%" stopColor="var(--line)" stopOpacity={0.05} />
             </linearGradient>
           </defs>
           <CartesianGrid strokeDasharray="3 3" stroke="var(--n40)" />
@@ -53,7 +53,7 @@ const WeightChart = ({ data }: TWeightChartProps) => {
           <Area
             type="monotone"
             dataKey="Weight"
-            stroke="#3880f6"
+            stroke="var(--line)"
             strokeWidth={2}
             fillOpacity={1}
             fill="url(#gradient)"
