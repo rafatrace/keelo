@@ -14,9 +14,7 @@ const Main = () => {
       <Helmet>
         <meta name="theme-color" content={theme === 'dark' ? '#000000' : '#FFFFFF'} />
       </Helmet>
-      <div id="page" className={theme === 'dark' ? 'dark-mode' : 'light-mode'}>
-        {!userLoggedIn ? <Unauthenticated /> : <Authenticated />}
-      </div>
+      <div id="page">{!userLoggedIn ? <Unauthenticated /> : <Authenticated />}</div>
     </>
   )
 }

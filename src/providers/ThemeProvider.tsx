@@ -24,6 +24,11 @@ export function ThemeProvider({ children }) {
   useEffect(() => {
     if (theme != null) {
       localStorage.setItem('theme', theme)
+      if (theme === 'dark') {
+        document.body.classList.add('dark-mode')
+      } else {
+        document.body.classList.remove('dark-mode')
+      }
     }
   }, [theme])
 
