@@ -23,14 +23,7 @@ export default defineConfig(({ mode }) => {
       react(),
       VitePWA({
         registerType: 'autoUpdate',
-        injectRegister: 'auto',
-        manifest: {
-          name: 'Keeelo Weight Tracking',
-          display: 'standalone',
-          short_name: 'Keeelo',
-          description: 'A weight tracking app',
-          theme_color: '#ffffff'
-        }
+        injectRegister: 'auto'
       })
     ],
     resolve: {
