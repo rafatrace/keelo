@@ -1,27 +1,20 @@
-# React + TypeScript + Vite
+![github](https://github.com/user-attachments/assets/f8d065f0-5731-4670-9bcf-43a95d955696)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# Keeelo
 
-Currently, two official plugins are available:
+An open-source app, developed by a solo developer, built with Vite, React, and TypeScript for enhanced type safety. The app is designed to assist users on their weight loss journey by helping them track their weight and providing valuable insights to support their progress.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Features
 
-## Expanding the ESLint configuration
+- **Weight Tracking**: Easily track your weight;
+- **BMI**: See the current state of your Body Mass Index.
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+## License
 
-- Configure the top-level `parserOptions` property like this:
+This project is licensed under the MIT License. See the LICENSE file for details.
 
-```js
-   parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-   },
-```
+## Contact
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+If you have any questions or suggestions regarding Keeelo, feel free to contact me at any social network. Check my [website](https://rafael.no) for a list of social networks.
+
+Thank you for using the Keeelo! Happy habit-building! 🚀
