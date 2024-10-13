@@ -1,0 +1,123 @@
+.popupWrapper {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+  -webkit-backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 200ms ease-in-out;
+  z-index: 10000;
+}
+
+.popupWrapper.open {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.popupContainer {
+  width: calc(100% - 40px);
+  max-width: 420px;
+  transform: translateY(50px);
+  background-color: var(--n10);
+  border: 1px solid var(--n30);
+  border-radius: 10px;
+  padding: 20px;
+  opacity: 0;
+  transition:
+    opacity 200ms ease-in-out,
+    transform 200ms ease-in-out;
+}
+
+.popupContainer.open {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.formWrapper {
+  padding: 20px;
+  border: 1px solid var(--n40);
+  border-radius: 8px;
+  margin-top: 20px;
+}
+
+.inputs {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.inputs input:focus,
+.inputs select:focus {
+  outline: 2px solid var(--n70);
+}
+
+.inputs input,
+.inputs .select {
+  flex: 1;
+  height: 40px;
+  border: 1px solid var(--n40);
+  border-radius: 8px;
+  padding: 0 10px;
+  color: var(--n70);
+  font-weight: 500;
+  background-color: transparent;
+}
+
+.inputs .select {
+  position: relative;
+  padding: 0 10px;
+  border: 0 !important;
+}
+
+.inputs .select select {
+  width: calc(100% + 20px);
+  height: 40px;
+  padding: 0 10px;
+  appearance: none;
+  border: 1px solid var(--n40);
+  border-radius: 8px;
+  margin: 0 -10px;
+  cursor: pointer;
+  background-color: transparent;
+  color: var(--n70);
+}
+
+.inputs .select svg {
+  position: absolute;
+  right: 10px;
+  top: 12px;
+}
+
+.group {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.group span {
+  transform: translateX(-30px);
+  color: var(--n50);
+}
+
+.group label {
+  width: 70px;
+}
+
+.footer {
+  margin: 20px -20px -20px -20px;
+  padding: 6px;
+  border-top: 1px solid var(--n40);
+  background-color: var(--n20);
+  border-radius: 0 0 8px 8px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.footer button {
+  height: 32px !important;
+}

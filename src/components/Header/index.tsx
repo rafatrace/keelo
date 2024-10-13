@@ -6,6 +6,7 @@ import { useState } from 'react'
 import classNames from 'classnames'
 import useClickOutside from '@/utils/useClickOutside'
 import DarkModeSelector from '../DarkModeSelector'
+import SettingsPopup from '../SettingsPopup'
 
 const Header = () => {
   // Services
@@ -13,13 +14,26 @@ const Header = () => {
 
   // Local state
   const [isDropdownOpen, setDropdown] = useState<boolean>(false)
+  const [isSettingsOpen, setSettings] = useState<boolean>(false)
 
   // Dropdown controllers
   const toggleDropdown = () => setDropdown(!isDropdownOpen)
   const closeDropdown = () => setDropdown(false)
 
+  // Settings popup controllers
+  const openSettings = () => setSettings(true)
+  const closeSettings = () => setSettings(false)
+
   // Refs
   const dropdownRef = useClickOutside<HTMLDivElement>(closeDropdown)
+
+  /**
+   * Close dropdown and open settings
+   */
+  const openSettingsPopup = () => {
+    closeDropdown()
+    openSettings()
+  }
 
   return (
     <header className={styles.header}>
@@ -36,7 +50,7 @@ const Header = () => {
         </button>
 
         <div ref={dropdownRef} className={classNames(styles.dropdown, { [styles.open]: isDropdownOpen })}>
-          <button onClick={signOut} className="sm regular">
+          <button onClick={openSettingsPopup} className="sm regular">
             Settings
           </button>
           <button onClick={signOut} className="sm regular">
@@ -46,6 +60,8 @@ const Header = () => {
           <DarkModeSelector />
         </div>
       </div>
+
+      <SettingsPopup isOpen={isSettingsOpen} close={closeSettings} />
     </header>
   )
 }

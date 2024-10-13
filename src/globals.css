@@ -3,6 +3,7 @@
   --n20: #f8f8f8;
   --n30: #eeeeee;
   --n40: #e5e5e5;
+  --n50: #999999;
   --n60: #636363;
   --n70: #252628;
   --n80: #000000;
@@ -17,6 +18,7 @@
   --n20: #111;
   --n30: #222;
   --n40: #333;
+  --n50: #555;
   --n60: #777;
   --n70: #eee;
   --n80: #ffffff;
@@ -65,6 +67,10 @@ svg {
   line-height: 18px;
 }
 
+.n70 {
+  color: var(--n70);
+}
+
 /**
  * Font weights
  */
@@ -92,6 +98,7 @@ svg {
   border-radius: 8px;
   border: 1px solid transparent;
   cursor: pointer;
+  padding: 0 20px;
 }
 
 .btn-white {
@@ -110,6 +117,7 @@ svg {
 .btn-black {
   border-color: var(--n70);
   background-color: var(--n70);
+  color: var(--n10);
 }
 
 .btn-black span {
