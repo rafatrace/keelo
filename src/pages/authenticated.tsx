@@ -32,13 +32,16 @@ const Authenticated = () => {
       <Header />
       <Form fetchAllWeights={fetchAllWeights} />
 
-      <WeightChart
-        data={weights.map((w) => {
-          return { name: convertDateToDotFormat(w.date), Weight: w.value }
-        })}
-      />
-
-      <WeightTable data={weights} fetchAllWeights={fetchAllWeights} />
+      {weights.length > 0 ? (
+        <>
+          <WeightChart
+            data={weights.map((w) => {
+              return { name: convertDateToDotFormat(w.date), Weight: w.value }
+            })}
+          />
+          <WeightTable data={weights} fetchAllWeights={fetchAllWeights} />
+        </>
+      ) : null}
     </main>
   )
 }
