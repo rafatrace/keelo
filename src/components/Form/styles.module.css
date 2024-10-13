@@ -18,6 +18,7 @@
   font-weight: 500;
   font-size: 14px;
   background-color: var(--n10);
+  box-sizing: border-box;
 }
 
 .form input:focus {

@@ -9,6 +9,7 @@
   top: calc(51px + 58px);
   width: 100%;
   display: block;
+  box-sizing: border-box;
 }
 
 @media (max-width: 515px) {

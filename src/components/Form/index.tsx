@@ -2,6 +2,7 @@ import { useAuth } from '@/providers/AuthProvider'
 import styles from './styles.module.css'
 import { ChangeEvent, FormEvent, useState } from 'react'
 import { addWeight } from '@/queries/weights'
+import { toast } from 'sonner'
 
 type TFormProps = {
   fetchAllWeights: () => void
@@ -19,10 +20,19 @@ const Form = ({ fetchAllWeights }: TFormProps) => {
    */
   const saveNewWeight = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault()
-
-    await addWeight(weight, currentUser.uid)
-    fetchAllWeights()
-    setWeight('')
+    if (!weight.length || isNaN(parseInt(weight))) {
+      toast.error('Please enter a valid weight before proceeding')
+    } else {
+      toast.promise(addWeight(weight, currentUser.uid), {
+        loading: 'Saving data...',
+        success: () => {
+          fetchAllWeights()
+          setWeight('')
+          return `Weight has been added`
+        },
+        error: 'Error'
+      })
+    }
   }
 
   /**

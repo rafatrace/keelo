@@ -3,6 +3,7 @@
   padding: 0 10px;
   gap: 6px;
   align-items: center;
+  color: var(--n70);
 }
 
 .container span {
