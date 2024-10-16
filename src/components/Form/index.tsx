@@ -46,7 +46,7 @@ const Form = () => {
   return (
     <div className={styles.formContainer}>
       <form onSubmit={saveNewWeight} className={styles.form}>
-        <input type="text" value={weight} onChange={setValue} placeholder="Ready to weight?" />
+        <input type="text" value={weight} onChange={setValue} placeholder="Weight" />
         <button>Save</button>
       </form>
     </div>
