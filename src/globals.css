@@ -20,7 +20,7 @@
   --pinkText: color-mix(in oklab, pink 100%, #000 50%);
   --yellowBg: color-mix(in oklab, orange 20%, #fff 100%);
   --yellowText: color-mix(in oklab, orange 100%, #000 50%);
-  --greenwBg: color-mix(in oklab, green 10%, #fff 100%);
+  --greenBg: color-mix(in oklab, green 10%, #fff 100%);
   --greenText: color-mix(in oklab, green 100%, #000 10%);
 }
 
