@@ -2,7 +2,7 @@ import { useAuth } from '@/providers/AuthProvider'
 import Unauthenticated from './unauthenticated'
 import Authenticated from './authenticated'
 import { useTheme } from '@/providers/ThemeProvider'
-import { Helmet } from 'react-helmet'
+import { Helmet } from 'react-helmet-async'
 
 const Main = () => {
   // Services

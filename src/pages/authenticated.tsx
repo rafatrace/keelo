@@ -1,36 +1,18 @@
 import Form from '@/components/Form'
 import Header from '@/components/Header'
-import { useAuth } from '@/providers/AuthProvider'
-import { getAllWeights, TWeight } from '@/queries/weights'
 import { convertDateToDotFormat } from '@/utils/dates'
-import { useEffect, useState } from 'react'
 import WeightChart from '@/components/WeightChart'
 import WeightTable from '@/components/WeightTable'
+import { useWeights } from '@/providers/WeightsProvider'
 
 const Authenticated = () => {
   // Services
-  const { currentUser } = useAuth()
-
-  // Local state
-  const [weights, setWeights] = useState<TWeight[]>([])
-
-  // Run on first loading
-  useEffect(() => {
-    fetchAllWeights()
-  }, [])
-
-  /**
-   * Get all weights from firebase
-   */
-  const fetchAllWeights = async () => {
-    const data = await getAllWeights(currentUser.uid)
-    setWeights(data)
-  }
+  const { weights } = useWeights()
 
   return (
     <main>
       <Header />
-      <Form fetchAllWeights={fetchAllWeights} />
+      <Form />
 
       {weights.length > 0 ? (
         <>
@@ -39,7 +21,7 @@ const Authenticated = () => {
               return { name: convertDateToDotFormat(w.date), Weight: w.value }
             })}
           />
-          <WeightTable data={weights} fetchAllWeights={fetchAllWeights} />
+          <WeightTable />
         </>
       ) : null}
     </main>

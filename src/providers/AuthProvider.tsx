@@ -1,4 +1,5 @@
 import { auth } from '@/firebase/firebase'
+import { getUserSettings } from '@/queries/settings'
 import { onAuthStateChanged, User } from 'firebase/auth'
 import { createContext, useContext, useEffect, useState } from 'react'
 
@@ -9,6 +10,10 @@ export function AuthProvider({ children }) {
   const [currentUser, setCurrentUser] = useState<User>(null)
   const [userLoggedIn, setUserLoggedIn] = useState<boolean>(false)
   const [loading, setLoading] = useState<boolean>(true)
+  const [settingsId, setSettingsId] = useState<string>('')
+  const [height, setHeight] = useState<string>('')
+  const [age, setAge] = useState<string>('')
+  const [gender, setGender] = useState<'male' | 'female'>('female')
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, initializeUser)
@@ -29,9 +34,37 @@ export function AuthProvider({ children }) {
     setLoading(false)
   }
 
+  useEffect(() => {
+    if (currentUser?.uid != null) {
+      fetchUserSettings()
+    }
+  }, [currentUser])
+
+  /**
+   * Fetch user settings
+   */
+  const fetchUserSettings = async () => {
+    const data = await getUserSettings(currentUser.uid)
+    if (data != null) {
+      setHeight(data.height.toString())
+      setAge(data.age.toString())
+      setGender(data.gender)
+      setSettingsId(data.id)
+    }
+  }
+
   const value = {
     currentUser,
+    uid: currentUser?.uid,
     userLoggedIn,
+    settingsId,
+    setSettingsId,
+    height,
+    setHeight,
+    age,
+    setAge,
+    gender,
+    setGender,
     loading
   }
 

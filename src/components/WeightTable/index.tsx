@@ -1,15 +1,14 @@
 import { convertDateToReadableText } from '@/utils/dates'
 import styles from './styles.module.css'
-import { deleteWeight, TWeight } from '@/queries/weights'
+import { deleteWeight } from '@/queries/weights'
 import Icon from '../Icon'
 import classNames from 'classnames'
+import { useWeights } from '@/providers/WeightsProvider'
 
-type TWeightTableProps = {
-  data: TWeight[]
-  fetchAllWeights: () => void
-}
+const WeightTable = () => {
+  // Services
+  const { weights: data, fetchWeights } = useWeights()
 
-const WeightTable = ({ data, fetchAllWeights }: TWeightTableProps) => {
   // Weights
   const weights = data.slice().reverse()
 
@@ -36,7 +35,7 @@ const WeightTable = ({ data, fetchAllWeights }: TWeightTableProps) => {
       const confirm = window.confirm('Are you sure you want to remove this weight?')
       if (confirm) {
         await deleteWeight(id)
-        fetchAllWeights()
+        fetchWeights()
       }
     }
   }

@@ -2,9 +2,9 @@ import classNames from 'classnames'
 import styles from './styles.module.css'
 import useClickOutside from '@/utils/useClickOutside'
 import Icon from '../Icon'
-import { ChangeEvent, FormEvent, useEffect, useState } from 'react'
+import { ChangeEvent, FormEvent } from 'react'
 import { useAuth } from '@/providers/AuthProvider'
-import { createSettings, getUserSettings, updateSettings } from '@/queries/settings'
+import { createSettings, updateSettings } from '@/queries/settings'
 import { toast } from 'sonner'
 import { useTheme } from '@/providers/ThemeProvider'
 
@@ -15,36 +15,11 @@ type TSettingsPopupProps = {
 
 const SettingsPopup = ({ isOpen, close }: TSettingsPopupProps) => {
   // Services
-  const { currentUser } = useAuth()
+  const { currentUser, settingsId, age, setAge, height, setHeight, gender, setGender } = useAuth()
   const { theme } = useTheme()
 
   // Refs
   const containerRef = useClickOutside<HTMLDivElement>(close)
-
-  // Local state
-  const [settingsId, setSettingsId] = useState<string>('')
-  const [height, setHeight] = useState<string>('')
-  const [age, setAge] = useState<string>('')
-  const [gender, setGender] = useState<'male' | 'female'>('female')
-
-  useEffect(() => {
-    if (currentUser?.uid != null) {
-      fetchUserSettings()
-    }
-  }, [currentUser])
-
-  /**
-   * Fetch user settings
-   */
-  const fetchUserSettings = async () => {
-    const data = await getUserSettings(currentUser.uid)
-    if (data != null) {
-      setHeight(data.height.toString())
-      setAge(data.age.toString())
-      setGender(data.gender)
-      setSettingsId(data.id)
-    }
-  }
 
   /**
    * Handle height change

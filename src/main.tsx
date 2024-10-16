@@ -6,14 +6,20 @@ import Main from './pages/main'
 import { AuthProvider } from './providers/AuthProvider'
 import { ThemeProvider } from './providers/ThemeProvider'
 import { Toaster } from 'sonner'
+import { HelmetProvider } from 'react-helmet-async'
+import { WeightsProvider } from './providers/WeightsProvider'
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <StrictMode>
-    <AuthProvider>
-      <ThemeProvider>
-        <Toaster position="top-center" richColors />
-        <Main />
-      </ThemeProvider>
-    </AuthProvider>
+    <HelmetProvider>
+      <AuthProvider>
+        <ThemeProvider>
+          <WeightsProvider>
+            <Toaster position="top-center" richColors />
+            <Main />
+          </WeightsProvider>
+        </ThemeProvider>
+      </AuthProvider>
+    </HelmetProvider>
   </StrictMode>
 )

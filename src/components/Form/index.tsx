@@ -1,16 +1,13 @@
 import { useAuth } from '@/providers/AuthProvider'
 import styles from './styles.module.css'
 import { ChangeEvent, FormEvent, useState } from 'react'
-import { addWeight } from '@/queries/weights'
 import { toast } from 'sonner'
+import { useWeights } from '@/providers/WeightsProvider'
 
-type TFormProps = {
-  fetchAllWeights: () => void
-}
-
-const Form = ({ fetchAllWeights }: TFormProps) => {
+const Form = () => {
   // Services
   const { currentUser } = useAuth()
+  const { addWeightOptimistically } = useWeights()
 
   // Local state
   const [weight, setWeight] = useState<string>('')
@@ -23,10 +20,9 @@ const Form = ({ fetchAllWeights }: TFormProps) => {
     if (!weight.length || isNaN(parseInt(weight))) {
       toast.error('Please enter a valid weight before proceeding')
     } else {
-      toast.promise(addWeight(weight, currentUser.uid), {
+      toast.promise(addWeightOptimistically(weight, currentUser.uid), {
         loading: 'Saving data...',
         success: () => {
-          fetchAllWeights()
           setWeight('')
           return `Weight has been added`
         },

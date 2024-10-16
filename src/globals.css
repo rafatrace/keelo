@@ -11,6 +11,17 @@
   --line: #3880f6;
   --good: #008844;
   --bad: #cb1414;
+
+  --darkRedBg: color-mix(in oklab, darkred 10%, #fff 100%);
+  --darkRedText: color-mix(in oklab, darkred 100%, #000 10%);
+  --redBg: color-mix(in oklab, red 10%, #fff 100%);
+  --redText: color-mix(in oklab, red 100%, #000 25%);
+  --pinkBg: color-mix(in oklab, pink 40%, #fff 100%);
+  --pinkText: color-mix(in oklab, pink 100%, #000 50%);
+  --yellowBg: color-mix(in oklab, orange 20%, #fff 100%);
+  --yellowText: color-mix(in oklab, orange 100%, #000 50%);
+  --greenwBg: color-mix(in oklab, green 10%, #fff 100%);
+  --greenText: color-mix(in oklab, green 100%, #000 10%);
 }
 
 .dark-mode {
@@ -22,6 +33,17 @@
   --n60: #777;
   --n70: #eee;
   --n80: #ffffff;
+
+  --darkRedBg: color-mix(in oklab, darkred 50%, #000 100%);
+  --darkRedText: color-mix(in oklab, darkred 100%, #fff 20%);
+  --redBg: color-mix(in oklab, red 50%, #000 100%);
+  --redText: color-mix(in oklab, red 100%, #fff 50%);
+  --pinkBg: color-mix(in oklab, pink 40%, #000 100%);
+  --pinkText: color-mix(in oklab, pink 100%, #fff 50%);
+  --yellowBg: color-mix(in oklab, orange 75%, #000 100%);
+  --yellowText: color-mix(in oklab, orange 100%, #fff 75%);
+  --greenBg: color-mix(in oklab, green 75%, #000 100%);
+  --greenText: color-mix(in oklab, green 100%, #fff 80%);
 }
 
 * {

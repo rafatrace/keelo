@@ -7,6 +7,7 @@ import classNames from 'classnames'
 import useClickOutside from '@/utils/useClickOutside'
 import DarkModeSelector from '../DarkModeSelector'
 import SettingsPopup from '../SettingsPopup'
+import BMIStatus from '../BMIStatus'
 
 const Header = () => {
   // Services
@@ -38,6 +39,8 @@ const Header = () => {
   return (
     <header className={styles.header}>
       <Logo height={30} />
+
+      <BMIStatus />
 
       <div className={styles.account}>
         <button className={styles.avatarBtn} onClick={toggleDropdown}>

@@ -8,11 +8,10 @@ export type TTheme = 'dark' | 'light'
 
 export function ThemeProvider({ children }) {
   // Session
-  const { currentUser } = useAuth()
+  const { currentUser, settingsId, setSettingsId } = useAuth()
 
   // Local state
   const [theme, setTheme] = useState<TTheme>(null)
-  const [settingsId, setSettingsId] = useState<string>(null)
 
   useEffect(() => {
     const t = localStorage.getItem('theme') as TTheme

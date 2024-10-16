@@ -1,0 +1,34 @@
+.container {
+  margin-left: auto;
+  margin-right: 20px;
+  padding: 4px 10px;
+  border-radius: 6px;
+}
+
+.severe-thinness,
+.obese2 {
+  background-color: var(--redBg);
+  color: var(--redText);
+}
+
+.moderate-thinness,
+.obese1 {
+  background-color: var(--pinkBg);
+  color: var(--pinkText);
+}
+
+.mild-thinness,
+.overweight {
+  background-color: var(--yellowBg);
+  color: var(--yellowText);
+}
+
+.normal {
+  background-color: var(--greenBg);
+  color: var(--greenText);
+}
+
+.obese3 {
+  background-color: var(--darkRedBg);
+  color: var(--darkRedText);
+}
