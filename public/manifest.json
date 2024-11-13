@@ -4,7 +4,7 @@
   "start_url": ".",
   "display": "standalone",
   "background_color": "#FFFFFF",
-  "theme_color": "#FFFFFFF",
+  "theme_color": "#FFFFFF",
   "description": "A weight tracking app",
   "icons": [
     {
