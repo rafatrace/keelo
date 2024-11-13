@@ -1,7 +1,7 @@
 ![Cover](https://github.com/user-attachments/assets/0cf8503e-3528-4704-9ce6-58ee84f95388)
 
 
-# Keeelo
+# Keelo
 
 An open-source app, developed by a solo developer, built with Vite, React, and TypeScript for enhanced type safety. The app is designed to assist users on their weight loss journey by helping them track their weight and providing valuable insights to support their progress.
 
