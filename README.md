@@ -18,6 +18,6 @@ This project is licensed under the MIT License. See the LICENSE file for details
 
 ## Contact
 
-If you have any questions or suggestions regarding Keeelo, feel free to contact me at any social network. Check my [website](https://rafael.no) for a list of social networks.
+If you have any questions or suggestions regarding Keelo, feel free to contact me at any social network. Check my [website](https://rafael.no) for a list of social networks.
 
-Thank you for using the Keeelo! Happy habit-building! 🚀
+Thank you for using the Keelo! Happy habit-building! 🚀

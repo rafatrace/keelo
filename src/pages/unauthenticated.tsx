@@ -10,7 +10,7 @@ const Unauthenticated = () => {
         </div>
         <div className="login-container">
           <h1 className="lg bold">Sign in</h1>
-          <p className="sm regular">Use one of the providers bellow to sign in or create and account in Keeelo.</p>
+          <p className="sm regular">Use one of the providers bellow to sign in or create and account in Keelo.</p>
 
           <div className="login-providers">
             <AuthButton type="google" />
