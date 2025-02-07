@@ -38,7 +38,9 @@ const Header = () => {
 
   return (
     <header className={styles.header}>
-      <Logo height={30} />
+      <div className={styles.logo}>
+        <Logo height={30} />
+      </div>
 
       <BMIStatus />
 
